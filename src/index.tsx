@@ -1,16 +1,20 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.css"
+import { DndProvider } from "react-dnd"
+import { HTML5Backend as Backend } from "react-dnd-html5-backend"
 import App from "./App"
 import { AppStateProvider } from "./AppStateContext"
 import reportWebVitals from "./reportWebVitals"
+import "./index.css"
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <DndProvider backend={Backend}>
     <AppStateProvider>
       <App />
     </AppStateProvider>
-  </React.StrictMode>,
+  </DndProvider>,
+  // </React.StrictMode>,
   document.getElementById("root"),
 )
 

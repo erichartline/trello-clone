@@ -10,7 +10,15 @@ const AppContainer = styled.div`
   width: 100%;
 `
 
-const ColumnContainer = styled.div`
+interface DragPreviewContainerProps {
+  isHidden?: boolean
+}
+
+const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
+  opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
+`
+
+const ColumnContainer = styled(DragPreviewContainer)`
   background-color: #ebecf0;
   width: 300px;
   min-height: 40px;
@@ -91,4 +99,5 @@ export {
   NewItemFormContainer,
   NewItemButton,
   NewItemInput,
+  DragPreviewContainer,
 }
